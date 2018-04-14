@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3 style="text-align: center">Página de Login</h3>
+
+  <ion-list>
+    
+    <ion-item>
+      <ion-label floating>Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.login" value="" required></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="usuario.senha" value="" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle [(ngModel)]="usuario.administrador"></ion-toggle>
+      <ion-label>
+        Administrador
+      </ion-label>
+      <ion-icon name='person' item-start></ion-icon>
+    </ion-item>
+    
+  </ion-list>
+
+  <div padding>
+    <button ion-button outline large color="secondary" (click)="entrar()" block>Entrar</button>
+  </div>
+  <div padding>
+    {{mensagem}}
+  </div>
+  <div padding>
+      {{lista | json}}
+
+      <ion-item>
+          <ion-card *ngFor="let item of lista">
+            <img src="{{item.imagem}}"/>
+            <ion-card-content>
+              <ion-card-title>
+                {{item.produto}}
+                </ion-card-title>
+              <p>
+                Ok.
+              </p>
+            </ion-card-content>
+          </ion-card>
+      </ion-item>
+  </div>
+</ion-content>
